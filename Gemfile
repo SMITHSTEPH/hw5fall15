@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 ruby '2.2.2'
-
+#tmdb hw6
+gem 'themoviedb'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets

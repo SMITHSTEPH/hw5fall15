@@ -27,4 +27,4 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
 
 Scenario: all ratings selected
   When I have opted to see movies rated: "G, PG, PG-13, R"
-  Then I should see all of the movies 
+  Then I should see all of the movies
