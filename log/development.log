@@ -7014,3 +7014,138 @@ Processing by MoviesController#search_tmdb as HTML
 Completed 200 OK in 113ms (Views: 33.8ms | ActiveRecord: 0.0ms)
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 173.28.218.160 at 2015-10-26 03:56:00 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 32ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 173.28.218.160 at 2015-10-26 03:56:03 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 173.28.218.160 at 2015-10-26 03:56:03 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+Redirected to https://selt-smithsteph.c9.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 173.28.218.160 at 2015-10-26 03:56:03 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (37.9ms)
+Completed 200 OK in 230ms (Views: 217.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 173.28.218.160 at 2015-10-26 03:56:03 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 173.28.218.160 at 2015-10-26 03:56:04 +0000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 173.28.218.160 at 2015-10-26 03:56:04 +0000
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 173.28.218.160 at 2015-10-26 03:56:04 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (11.6ms)
+Completed 200 OK in 57ms (Views: 55.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/search_tmdb" for 173.28.218.160 at 2015-10-26 03:56:09 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/lLh52r4Y1OrhQKX1NHvPf2e2+n1zqUPKUMThg8y4apr+ZCZgmoXuO6+Q6mfNmsdGDegirUaZRWJHP568i/Byw==", "search_terms"=>"Babe", "commit"=>"Search TMDb"}
+  Rendered movies/search_tmdb.html.haml within layouts/application (22.6ms)
+Completed 200 OK in 135ms (Views: 57.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_tmdb" for 173.28.218.160 at 2015-10-26 03:56:12 +0000
+Processing by MoviesController#add_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d9kn6YaR3XwNnXsJCWj6Hc/pbsqFEYhjkEp2NG5z+KXiclaXbgOpl0imOjdCj349KkAVqcXFSHkwFZvIk27YxA==", "commit"=>"Add selected movies"}
+Redirected to https://selt-smithsteph.c9.io/movies
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `each_key' for nil:NilClass):
+  app/controllers/movies_controller.rb:91:in `add_tmdb'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (42.5ms)
+
+
+Started POST "/add_tmdb" for 173.28.218.160 at 2015-10-26 03:57:29 +0000
+Processing by MoviesController#add_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d9kn6YaR3XwNnXsJCWj6Hc/pbsqFEYhjkEp2NG5z+KXiclaXbgOpl0imOjdCj349KkAVqcXFSHkwFZvIk27YxA==", "commit"=>"Add selected movies"}
+Redirected to https://selt-smithsteph.c9.io/movies
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.28.218.160 at 2015-10-26 03:57:29 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://selt-smithsteph.c9.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 173.28.218.160 at 2015-10-26 03:57:30 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (13.5ms)
+Completed 200 OK in 42ms (Views: 39.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/default.self-49554e9e270baee081b10069c4f5f33b75f6549ad240aac134400c56d752bf9f.css?body=1" for 173.28.218.160 at 2015-10-26 03:57:30 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 173.28.218.160 at 2015-10-26 03:57:30 +0000
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 173.28.218.160 at 2015-10-26 03:57:30 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 173.28.218.160 at 2015-10-26 03:57:30 +0000
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 173.28.218.160 at 2015-10-26 03:57:30 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 173.28.218.160 at 2015-10-26 03:57:30 +0000
+
+
+Started POST "/search_tmdb" for 173.28.218.160 at 2015-10-26 03:57:40 +0000
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7IxB9QQ2Pur8bGOucJrLZpnp8R6A4KC/EzX6bpEU9Md5JzCL7KRKAblXIpA7fU9GfECKfcA0YKWzaheSbAnUpg==", "search_terms"=>"Babe", "commit"=>"Search TMDb"}
+  Rendered movies/search_tmdb.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 136ms (Views: 63.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_tmdb" for 173.28.218.160 at 2015-10-26 03:57:42 +0000
+Processing by MoviesController#add_tmdb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"42gSJJkCooU9PVgIrfiO3zizdpqkco/P/oT8m2r4v2p2w2NacZDWbngGGTbmHwr/3RoN+eSmT9Ve2xFnl+WfCw==", "commit"=>"Add selected movies"}
+Redirected to https://selt-smithsteph.c9.io/movies
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for 173.28.218.160 at 2015-10-26 03:57:43 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://selt-smithsteph.c9.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 173.28.218.160 at 2015-10-26 03:57:43 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 44ms (Views: 41.4ms | ActiveRecord: 0.4ms)

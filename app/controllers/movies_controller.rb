@@ -84,22 +84,24 @@ class MoviesController < ApplicationController
     h=params[:selected_movies]
     #puts h.to_s
   if(h==nil)
+    puts "IN IF"
     flash[:notice]="no movies were selected"
     redirect_to movies_path
-  end
-   h.each_key {|key| 
-      idArr << key
-    }
-    @movie_string=""
+  else
+     h.each_key {|key| 
+        idArr << key
+     }
+     @movie_string=""
     idArr.each do |i| 
       #puts i
       string=Movie.create_from_tmdb i
       @movie_string+=string.to_s
       @movie_string+=", "
       
-      
+     
     end
     flash[:notice] = "The follwing movies were successfully added: #{@movie_string}"
     redirect_to movies_path
+  end
   end
 end

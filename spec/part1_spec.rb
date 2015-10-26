@@ -54,6 +54,11 @@ describe MoviesController, type: :controller do
             expect(response).to redirect_to('/movies')
             expect(flash[:notice]).to eq "The follwing movies were successfully added: Harry Potter and the Goblet of Fire, "
         end
+        it 'should redirect to movies after submitting empty form' do
+            post :add_tmdb
+            expect(response).to redirect_to('/movies')
+            expect(flash[:notice]).to eq "no movies were selected"
+        end
     end
 end
 
