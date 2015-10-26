@@ -3,7 +3,8 @@ class Movie < ActiveRecord::Base
     %w(G PG PG-13 NC-17 R)
   end
   def self.find_in_tmdb search_term
-  
+    puts "IN MODEL"
+    puts search_term
     movie_arr=Array.new
     Tmdb::Api.key("f4702b08c0ac6ea5b51425788bb26562")
     @tmdb_movies = Tmdb::Movie.find(search_term)

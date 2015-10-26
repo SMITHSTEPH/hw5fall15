@@ -1,12 +1,5 @@
 require 'spec_helper'
 require 'rails_helper'
-=begin
-describe MoviesController do
-    describe 'searching TMDb' do
-        it 'should call the model method that performs TMDb search' do
-            fake_results
-            
-=end
 
 describe MoviesController, type: :controller do
     describe 'searching TMDb' do
@@ -52,15 +45,14 @@ describe MoviesController, type: :controller do
     end
 end
 
-=begin
-describe Movie do
+describe Movie, type: :model do
     describe 'searching Tmdb by keyword' do
         context 'with valid API key' do
             it 'should call Tmdb with search term' do
-                Tmdb::Movie.expect(:find).with('Inception')
+                expect(Tmdb::Movie).to receive(:find).with('Inception').and_return(@fake_results)
                 Movie.find_in_tmdb('Inception')
             end
         end
     end
-=end
+end
 
