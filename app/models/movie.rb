@@ -13,7 +13,7 @@ class Movie < ActiveRecord::Base
     end
 
     @tmdb_movies = Tmdb::Movie.find(search_term)
-    rescue NoMethodError=>tmdb_gem_exception
+    #rescue NoMethodError=>tmdb_gem_exception
     @tmdb_movies.each do |tmdb_movies|
       movie_arr << {:tmdb_id => tmdb_movies.id, :title=> tmdb_movies.title, :rating =>'PG', :release_date=>tmdb_movies.release_date}
       #puts movie_arr
