@@ -45,12 +45,27 @@ describe MoviesController, type: :controller do
     end
 end
 
-describe Movie, type: :model do
+describe Movie do
+    before (:each) do
+        @fake_results=[double(:title=>"movie_title", :rating=>"movie_rating", :release_date=>"release_date"), double(:title=>"movie_title", :rating=>"movie_rating", :release_date=>"release_date")]
+        @movie=double(Movie)
+    end
     describe 'searching Tmdb by keyword' do
         context 'with valid API key' do
             it 'should call Tmdb with search term' do
-                expect(Tmdb::Movie).to receive(:find).with('Inception').and_return(@fake_results)
-                Movie.find_in_tmdb('Inception')
+                expect(Tmdb::Movie).to receive(:find).with('Ted')
+                Movie.find_in_tmdb("Ted")
+            end
+            it 'returns empty array if Tmdb::Movie does not return any results' do
+                result=Movie.find_in_tmdb("afdas")
+                expect(result).to eq([])
+            end
+        end
+        context 'with invalid key' do
+            it'should raise InvalidKeyError if key is missing or invalid' do
+                allow(Tmdb::Movie).to receive(:find).and_raise(NoMethodError)
+                allow(Tmdb::Api).to receive(:response).and_return({'code'=>'401'})
+                expect{Movie.find_in_tmdb('Inception')}.to raise_error(Movie::InvalidKeyError)
             end
         end
     end
