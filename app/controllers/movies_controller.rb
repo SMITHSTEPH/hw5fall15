@@ -83,6 +83,10 @@ class MoviesController < ApplicationController
     idArr=Array.new
     h=params[:selected_movies]
     #puts h.to_s
+  if(h==nil)
+    flash[:notice]="no movies were selected"
+    redirect_to movies_path
+  end
    h.each_key {|key| 
       idArr << key
     }
