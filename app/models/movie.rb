@@ -24,6 +24,9 @@ class Movie < ActiveRecord::Base
   
   def self.create_from_tmdb tmdb_id
     #puts tmdb_id
+    if Tmdb::Api.response['code']=='401'
+      raise Movie::InvalidKeyError, 'Invalid API Key'
+    end
     details=Tmdb::Movie.detail(tmdb_id)
     puts "\n\nDETAILS:\n\n"
     #puts details.to_s

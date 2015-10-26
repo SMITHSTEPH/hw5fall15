@@ -82,15 +82,17 @@ class MoviesController < ApplicationController
     puts "enters right controller"
     idArr=Array.new
     h=params[:selected_movies]
-    puts h.to_s
+    #puts h.to_s
    h.each_key {|key| 
       idArr << key
     }
     @movie_string=""
     idArr.each do |i| 
-      puts i
-      @movie_string+=Movie.create_from_tmdb i
+      #puts i
+      string=Movie.create_from_tmdb i
+      @movie_string+=string.to_s
       @movie_string+=", "
+      
       
     end
     flash[:notice] = "The follwing movies were successfully added: #{@movie_string}"
