@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'simplecov', :require => false, :group => :test
   gem 'sqlite3'
   gem 'byebug'
   gem 'database_cleaner'
