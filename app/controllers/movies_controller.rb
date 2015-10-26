@@ -81,7 +81,7 @@ class MoviesController < ApplicationController
   def add_tmdb
     puts "enters right controller"
     idArr=Array.new
-    h=params["selected_movies"]
+    h=params[:selected_movies]
     puts h.to_s
    h.each_key {|key| 
       idArr << key
